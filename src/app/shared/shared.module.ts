@@ -8,6 +8,8 @@ import { DelonFormModule } from '@delon/form';
 
 import { SHARED_DELON_MODULES } from './shared-delon.module';
 import { SHARED_ZORRO_MODULES } from './shared-zorro.module';
+import {CustomDirective} from "../routes/directives/custom-directives/custom-directive.directive";
+import {CustomDirectivesModule} from "../routes/directives/custom-directives.module";
 
 // #region third libs
 
@@ -18,7 +20,7 @@ const THIRDMODULES: Array<Type<void>> = [];
 // #region your componets & directives
 
 const COMPONENTS: Array<Type<void>> = [];
-const DIRECTIVES: Array<Type<void>> = [];
+const DIRECTIVES: Array<Type<void>> = [CustomDirective];
 
 // #endregion
 
@@ -34,7 +36,8 @@ const DIRECTIVES: Array<Type<void>> = [];
     ...SHARED_DELON_MODULES,
     ...SHARED_ZORRO_MODULES,
     // third libs
-    ...THIRDMODULES
+    ...THIRDMODULES,
+    CustomDirectivesModule
   ],
   declarations: [
     // your components
@@ -55,7 +58,8 @@ const DIRECTIVES: Array<Type<void>> = [];
     ...THIRDMODULES,
     // your components
     ...COMPONENTS,
-    ...DIRECTIVES
+    ...DIRECTIVES,
+    CustomDirectivesModule
   ]
 })
 export class SharedModule { }

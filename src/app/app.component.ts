@@ -4,6 +4,7 @@ import { TitleService, VERSION as VERSION_ALAIN } from '@delon/theme';
 import { environment } from '@env/environment';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { VERSION as VERSION_ZORRO } from 'ng-zorro-antd/version';
+import {HighlightLoader} from "ngx-highlightjs";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,15 @@ export class AppComponent implements OnInit {
     renderer: Renderer2,
     private router: Router,
     private titleSrv: TitleService,
-    private modalSrv: NzModalService
+    private modalSrv: NzModalService,
+    private hljsLoader: HighlightLoader
   ) {
     renderer.setAttribute(el.nativeElement, 'ng-alain-version', VERSION_ALAIN.full);
     renderer.setAttribute(el.nativeElement, 'ng-zorro-version', VERSION_ZORRO.full);
   }
 
   ngOnInit(): void {
+    this.hljsLoader.setTheme('assets/styles/solarized-dark.css');
     let configLoad = false;
     this.router.events.subscribe(ev => {
       if (ev instanceof RouteConfigLoadStart) {
@@ -29,11 +32,11 @@ export class AppComponent implements OnInit {
       }
       if (configLoad && ev instanceof NavigationError) {
         this.modalSrv.confirm({
-          nzTitle: `提醒`,
-          nzContent: environment.production ? `应用可能已发布新版本，请点击刷新才能生效。` : `无法加载路由：${ev.url}`,
+          nzTitle: `Title`,
+          nzContent: environment.production ? `` : `${ev.url}`,
           nzCancelDisabled: false,
-          nzOkText: '刷新',
-          nzCancelText: '忽略',
+          nzOkText: 'Ok',
+          nzCancelText: 'Cancel',
           nzOnOk: () => location.reload()
         });
       }

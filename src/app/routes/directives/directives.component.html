@@ -1,0 +1,69 @@
+<div nz-row>numbers = [1,2,3,4,5,6,7,8]</div>
+<br>
+
+<!-- ngClass -->
+<h2><strong>[ngClass]</strong></h2>
+<div nz-row>
+  <div [nzSpan]="12" nz-col>is a directive that adds a classname in an element, depending on a condition: <strong>[ngClass]=&#123;odd:
+    condition}</strong>
+  </div>
+  <div [nzSpan]="12" class="pre-code" nz-col>
+    <pre><code [highlight]="ngStyleCode"></code></pre>
+    <pre><code [highlight]="ngClassContent"></code></pre>
+  </div>
+</div>
+<div [nzSpan]="12" nz-col>
+  <strong>Output -></strong>
+  <ng-container *ngFor="let number of numbers">
+    <span [ngClass]="{oddNumber: number % 2 !== 0, evenNumber: number % 2 === 0}">{{ number }}</span> |
+  </ng-container>
+</div>
+<hr>
+
+<!--ngStyle-->
+<div nz-row>numbers = [1,2,3,4,5,6,7,8]</div>
+<br>
+<h2><strong>[ngStyle]</strong></h2>
+<div nz-row>
+  <div [nzSpan]="12" nz-col>is a directive that adds a specific style in an element (+condition based): <strong>[ngStyle]=&#123;backgroundColor:
+    string}</strong>
+  </div>
+  <div [nzSpan]="12" class="pre-code" nz-col>
+    <pre><code [highlight]="ngStyleContent"></code></pre>
+  </div>
+</div>
+<br>
+<div [nzSpan]="12" nz-col>
+  <strong>Output -></strong>
+  <ng-container *ngFor="let number of numbers">
+    <span [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'red' : 'green', padding: '2px'}">{{ number }}</span> |
+  </ng-container>
+</div>
+<hr>
+
+<!--custom directives-->
+<div nz-row>fruits = ['Apple', 'Orange', 'Banana']</div>
+<br>
+<h2><strong>Custom Attribute Directives</strong></h2>
+<div nz-row>
+  <div [nzSpan]="12" nz-col>Let's say we want to create a custom <strong>attribute</strong> directive that does the
+    following:
+    <br>
+    <ol>
+      <li>Highlights the element with yellow color</li>
+      <li>Adds 5px padding</li>
+      <li>Makes the font-weight -> bold</li>
+      <li>Border radius of 8px</li>
+    </ol>
+  </div>
+  <div [nzSpan]="12" nz-col>
+    <pre><code [highlight]="customDirectiveContent"></code></pre>
+  </div>
+</div>
+<div [nzSpan]="12" nz-col>
+  <strong>Output -></strong>
+  <ng-container *ngFor="let fruit of fruits">
+    <span customDirective>{{ fruit }}</span> |
+  </ng-container>
+</div>
+<hr>

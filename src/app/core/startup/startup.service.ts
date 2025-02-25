@@ -103,8 +103,8 @@ export class StartupService {
         group: true,
         children: [
           {
-            text: this.i18n.fanyi('menu.dashboard'),
-            link: '/dashboard',
+            text: 'Directives',
+            link: '/directives',
             icon: { type: 'icon', value: 'appstore' }
           }
         ]
