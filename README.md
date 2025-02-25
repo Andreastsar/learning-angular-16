@@ -1,4 +1,8 @@
 # Project Scaffold
+<hr>
+
+## Description
+### A clean project scaffold, for creating Admin Dashboards using Ng-Alain framework
 
 - Angular v16.2.0
 - Ng-Alain v16.4.3
