@@ -15,6 +15,8 @@ import { UserLockComponent } from './passport/lock/lock.component';
 import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterResultComponent } from './passport/register-result/register-result.component';
 import { UserRegisterComponent } from './passport/register/register.component';
+import {UnitTestingComponent} from "./unit-testing/unit-testing.component";
+import {UnitTestingBasicsComponent} from "./unit-testing/unit-testing-basics/unit-testing-basics.component";
 
 const routes: Routes = [
   {
@@ -27,6 +29,18 @@ const routes: Routes = [
         path: 'directives',
         component: DirectivesComponent,
         data: { title: 'Directives' },
+      },
+      {
+        path: 'testing',
+        data: { title: 'Testing' },
+        component: UnitTestingComponent,
+        children: [
+          {
+            path: 'basics',
+            data: { title: 'Basics' },
+            component: UnitTestingBasicsComponent,
+          },
+        ]
       },
       { path: 'exception', loadChildren: () => import('./exception/exception.module').then(m => m.ExceptionModule) }
       // 业务子模块

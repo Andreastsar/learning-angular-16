@@ -10,6 +10,9 @@ import { SHARED_DELON_MODULES } from './shared-delon.module';
 import { SHARED_ZORRO_MODULES } from './shared-zorro.module';
 import {CustomDirective} from "../routes/directives/custom-directives/custom-directive.directive";
 import {CustomDirectivesModule} from "../routes/directives/custom-directives.module";
+import {UnitTestingComponent} from "../routes/unit-testing/unit-testing.component";
+import {Highlight} from "ngx-highlightjs";
+import {UnitTestingBasicsComponent} from "../routes/unit-testing/unit-testing-basics/unit-testing-basics.component";
 
 // #region third libs
 
@@ -19,7 +22,7 @@ const THIRDMODULES: Array<Type<void>> = [];
 
 // #region your componets & directives
 
-const COMPONENTS: Array<Type<void>> = [];
+const COMPONENTS: Array<Type<void>> = [UnitTestingComponent,UnitTestingBasicsComponent];
 const DIRECTIVES: Array<Type<void>> = [CustomDirective];
 
 // #endregion
@@ -37,7 +40,8 @@ const DIRECTIVES: Array<Type<void>> = [CustomDirective];
     ...SHARED_ZORRO_MODULES,
     // third libs
     ...THIRDMODULES,
-    CustomDirectivesModule
+    CustomDirectivesModule,
+    Highlight
   ],
   declarations: [
     // your components

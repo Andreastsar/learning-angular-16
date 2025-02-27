@@ -106,6 +106,17 @@ export class StartupService {
             text: 'Directives',
             link: '/directives',
             icon: { type: 'icon', value: 'appstore' }
+          },
+          {
+            text: 'Testing',
+            link: '/testing',
+            icon: { type: 'icon', value: 'bulb' },
+            children: [
+              {
+                text: 'Basics',
+                link: '/testing/basics',
+              },
+            ]
           }
         ]
       }
